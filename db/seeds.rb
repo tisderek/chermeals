@@ -4,4 +4,3 @@
 lasagna = @derek.provided_meals.create(title: 'Lasagna')
 
 Gift.create(provider: derek, receiver: sandy, meal: lasagna)
-
