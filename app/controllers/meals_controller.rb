@@ -1,5 +1,6 @@
 class MealsController < ApplicationController
   before_action :set_meal, :set_provider, only: [:show, :edit, :update, :destroy]
+  before_action :set_provider
 
   def index
     @meals = Meal.all
@@ -16,9 +17,10 @@ class MealsController < ApplicationController
   end
 
   def create
-    binding.pry
+    require 'pry'
     @meal = Meal.new(meal_params)
-
+    @meal.provider = @provider
+    binding.pry
     respond_to do |format|
       if @meal.save
         format.html { redirect_to @meal, notice: 'Meal was successfully created.' }
@@ -56,10 +58,10 @@ class MealsController < ApplicationController
     end
 
     def set_provider
-      @provider = User.find_by(name: 'Derek')
+      @provider = User.first
     end
 
     def meal_params
-      params.fetch(:meal, {})
+      params.require(:meal).permit(:title)
     end
 end

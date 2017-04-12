@@ -9,6 +9,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="ui fixed inverted menu">
+      <div class="ui container">
+        <a href="#" class="header item">
+             <%= image_tag "gloves.png", class: 'logo' %>
+           chermeals
+        </a>
+        <a href="#" class="item">Home</a>
+      </div>
+    </div>
+    <div class="ui main text container">
+      <%= yield %>
+    </div>
   </body>
 </html>
