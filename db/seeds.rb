@@ -1,6 +1,6 @@
-@derek = User.create(name: 'Derek')
-@sandy = User.create(name: 'Sandy')
+derek = User.create(name: 'Derek')
+sandy = User.create(name: 'Sandy')
 
-lasagna = @derek.provided_meals.create(title: 'Lasagna')
+lasagna = derek.provided_meals.create(title: 'Lasagna')
 
-Gift.create(provider: derek, receiver: sandy, meal: lasagna)
+transaction = derek.provided_gifts.create(receiver_id: sandy.id, meal_id: lasagna.id)
