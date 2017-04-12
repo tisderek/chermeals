@@ -17,10 +17,9 @@ class MealsController < ApplicationController
   end
 
   def create
-    require 'pry'
+
     @meal = Meal.new(meal_params)
     @meal.provider = @provider
-    binding.pry
     respond_to do |format|
       if @meal.save
         format.html { redirect_to @meal, notice: 'Meal was successfully created.' }
