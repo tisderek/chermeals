@@ -14,20 +14,20 @@
           <a><%= index + 1 %> week from today</a>
         </div>
         <div class="description">
-          Elyse is a copywriter working in New York.
+          Meal description here. Yes very yummy in your tummy. So delicious.
         </div>
       </div>
       <div class="extra content">
         <%= link_to meal do %>
-          <i class="eye icon"></i>
+          <%= semantic_icon("eye") %>
           Show
         <% end %>
 
         <%= link_to edit_meal_path(meal) do %>
-          <i class="right floated pencil icon"></i>
+          <%= semantic_icon("right floated pencil") %>
         <% end %>
         <%= link_to meal, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <i class="trash icon right floated"></i>
+          <%= semantic_icon("right floated trash") %>
         <% end %>
       </div>
     </div>
