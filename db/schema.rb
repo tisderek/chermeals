@@ -10,15 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412013804) do
+ActiveRecord::Schema.define(version: 20170329165139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "boxes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "gifts", force: :cascade do |t|
     t.integer  "provider_id"
@@ -32,10 +27,17 @@ ActiveRecord::Schema.define(version: 20170412013804) do
   end
 
   create_table "meals", force: :cascade do |t|
-    t.string   "title"
+    t.string   "main_title"
+    t.string   "sub_title"
+    t.string   "description"
+    t.string   "cook_time"
+    t.integer  "servings_count"
+    t.integer  "calories_count"
+    t.date     "expected_date"
     t.integer  "provider_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "hero_image"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.index ["provider_id"], name: "index_meals_on_provider_id", using: :btree
   end
 

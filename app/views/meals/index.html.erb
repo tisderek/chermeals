@@ -3,36 +3,7 @@
 <h2>Up for grabs</h2>
 
 <div class="ui link cards">
-
-  <% @available_meals.each_with_index do |meal, index| %>
-    <div class="card">
-      <div class="content">
-
-        <i class="right floated star icon"></i>
-        <div class="header"><%= meal.title %></div>
-        <div class="meta">
-          <a><%= index + 1 %> week from today</a>
-        </div>
-        <div class="description">
-          Meal description here. Yes very yummy in your tummy. So delicious.
-        </div>
-      </div>
-      <div class="extra content">
-        <%= link_to meal do %>
-          <%= semantic_icon("eye") %>
-          Show
-        <% end %>
-
-        <%= link_to edit_meal_path(meal) do %>
-          <%= semantic_icon("right floated pencil") %>
-        <% end %>
-        <%= link_to meal, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <%= semantic_icon("right floated trash") %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-
+  <%= render partial: "index_card", collection: @available_meals, as: :meal%>
 </div>
 
 <div class="ui hidden divider"></div>
@@ -42,34 +13,9 @@
 
 <div class="ui link cards">
 
-  <% @taken_meals.each_with_index do |meal, index| %>
-    <div class="card">
-      <div class="content">
-
-        <i class="right floated star icon"></i>
-        <div class="header"><%= meal.title %></div>
-        <div class="meta">
-          <a><%= index + 1 %> week from today</a>
-        </div>
-        <div class="description">
-          Meal description here. Yes very yummy in your tummy. So delicious.
-        </div>
-      </div>
-      <div class="extra content">
-        <%= link_to meal do %>
-          <%= semantic_icon("eye") %>
-          Show
-        <% end %>
-
-        <%= link_to edit_meal_path(meal) do %>
-          <%= semantic_icon("right floated pencil") %>
-        <% end %>
-        <%= link_to meal, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <%= semantic_icon("right floated trash") %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
+<div class="ui link cards">
+    <%= render partial: "index_card", collection: @taken_meals, as: :meal%>
+  </div>
 
 </div>
 
