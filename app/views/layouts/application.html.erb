@@ -15,10 +15,14 @@
              <%= image_tag "gloves.png", class: 'logo' %>
            chermeals
         </a>
-
+        <div class="right menu">
+          <%= link_to new_meal_path, {class: 'item'} do %>
+            <%= semantic_icon("add circle") %> Add a meal
+          <% end %>
+         </div>
       </div>
     </div>
-    <div class="ui main text container">
+    <div class="ui main container">
       <%= yield %>
     </div>
   </body>

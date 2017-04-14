@@ -3,7 +3,9 @@ class MealsController < ApplicationController
   before_action :set_provider
 
   def index
-    @meals = Meal.all
+    taken_meals_from_gifts = Gift.pluck(:meal_id)
+    @taken_meals = Meal.all.where(id: taken_meals_from_gifts)
+    @available_meals = Meal.all.where.not(id: taken_meals_from_gifts)
   end
 
   def show
