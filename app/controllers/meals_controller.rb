@@ -5,7 +5,8 @@ class MealsController < ApplicationController
   def index
     taken_meals_from_gifts = Gift.pluck(:meal_id)
     @taken_meals = Meal.all.where(id: taken_meals_from_gifts)
-    @available_meals = Meal.all.where.not(id: taken_meals_from_gifts)
+    # binding.pry
+    @available_meals = Meal.all.to_a - @taken_meals
   end
 
   def show

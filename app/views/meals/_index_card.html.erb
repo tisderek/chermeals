@@ -1,10 +1,19 @@
-<div class="card">
+<div class="ui card">
     <div class="content">
-
-      <i class="right floated star icon"></i>
+      <span class="right floated meta">
+        in x days
+      </span>
+      <span class="left floated meta">
+        <%= meal.provider_id %>Provider.id
+      </span>
+    </div>
+    <div class="image">
+      <%= image_tag "meals/catfish.jpg"%>
+    </div>
+    <div class="content">
       <div class="header"><%= meal.main_title %></div>
       <div class="meta">
-        <a> week from today</a>
+        <%= meal.sub_title %>
       </div>
       <div class="description">
         <%= meal.description %>
