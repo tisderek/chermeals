@@ -1,6 +1,6 @@
-derek = User.create(name: 'Derek')
-jack = User.create(name: 'Jack')
-sandy = User.create(name: 'Sandy')
+derek = User.first
+jack = User.second
+sandy = User.third
 
 stew = derek.provided_meals.create(
   main_title: 'Spanish-Style Potato & Chickpea Stew',

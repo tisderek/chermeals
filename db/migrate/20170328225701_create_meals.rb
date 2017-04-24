@@ -5,7 +5,7 @@ class CreateMeals < ActiveRecord::Migration[5.0]
       t.string                  :sub_title
       t.string                  :description
       t.string                  :cook_time
-      t.integer                 :servings_count
+      t.integer                 :servings_count #remove
       t.integer                 :calories_count
       t.date                    :expected_date
       t.belongs_to              :provider

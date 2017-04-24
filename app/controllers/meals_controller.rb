@@ -1,6 +1,6 @@
 class MealsController < ApplicationController
   before_action :set_meal, :set_provider, only: [:show, :edit, :update, :destroy]
-  before_action :set_provider
+  before_action :authenticate_user!, only: [:new]
 
   def index
     taken_meals_from_gifts = Gift.pluck(:meal_id)
@@ -60,7 +60,7 @@ class MealsController < ApplicationController
     end
 
     def set_provider
-      @provider = User.first
+      @provider = current_user
     end
 
     def meal_params

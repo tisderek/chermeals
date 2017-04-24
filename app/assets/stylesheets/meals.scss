@@ -1,6 +1,4 @@
-// Place all the styles related to the meals controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// Semantic ui styles
 
 @import "semantic-ui";
 $import-google-fonts: true !default;
@@ -13,4 +11,12 @@ $font-family: $font-name, 'Helvetica Neue', Arial, Helvetica, sans-serif !defaul
 }
 .main.container {
   margin-top: 7em;
+}
+
+.cm-singup-column {
+  max-width: 450px;
+}
+
+.cm-typed-logo span {
+  color: pink;
 }

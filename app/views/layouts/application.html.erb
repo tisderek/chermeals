@@ -13,16 +13,27 @@
       <div class="ui container">
         <a href="#" class="header item">
              <%= image_tag "gloves.png", class: 'logo' %>
-           chermeals
+           <span class="cm-typed-logo"> <span>cher</span>meals</span>
         </a>
         <div class="right menu">
           <%= link_to new_meal_path, {class: 'item'} do %>
             <%= semantic_icon("add circle") %> Add a meal
           <% end %>
+          <% if user_signed_in? %>
+            <li class='item'>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+            </li>
+          <% else %>
+            <li class='item'>
+            <%= link_to('Login', new_user_session_path)  %>  
+            </li>
+          <% end %>
          </div>
       </div>
     </div>
     <div class="ui main container">
+    <p class="notice"><%= notice %></p>
+     <p class="alert"><%= alert %></p>
       <%= yield %>
     </div>
   </body>
