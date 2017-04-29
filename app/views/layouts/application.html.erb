@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Chermeals</title>
+    <title>chermeals</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -20,13 +20,9 @@
             <%= semantic_icon("add circle") %> Add a meal
           <% end %>
           <% if user_signed_in? %>
-            <li class='item'>
-            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-            </li>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => 'item') %>
           <% else %>
-            <li class='item'>
-            <%= link_to('Login', new_user_session_path)  %>  
-            </li>
+            <%= link_to('Login', new_user_session_path, :class => 'item') %>
           <% end %>
          </div>
       </div>

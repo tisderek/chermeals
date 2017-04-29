@@ -8,16 +8,16 @@
       </span>
     </div>
     <div class="image">
-      <%= image_tag "meals/catfish.jpg"%>
+      <%= image_tag "meals/" + meal.hero_image + ".jpg"%>
     </div>
     <div class="content">
       <div class="header"><%= meal.main_title %></div>
       <div class="meta">
         <%= meal.sub_title %>
       </div>
-      <div class="description">
+      <!-- <div class="description">
         <%= meal.description %>
-      </div>
+      </div> -->
     </div>
     <div class="extra content">
       <%= link_to meal do %>

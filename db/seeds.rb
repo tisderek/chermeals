@@ -1,8 +1,6 @@
-
-
-derek = User.first
-jack = User.second
-sandy = User.third
+derek = User.create(name: 'Derek', email:'derek@neighborly.com', password: 'password')
+jack = User.create(name: 'Jack', email:'jack@neighborly.com', password: 'password')
+sandy = User.create(name: 'Sandy', email:'sandy@neighborly.com', password: 'password')
 
 stew = derek.provided_meals.create(
   main_title: 'Spanish-Style Potato & Chickpea Stew',
