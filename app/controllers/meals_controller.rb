@@ -1,11 +1,11 @@
 class MealsController < ApplicationController
-  before_action :set_meal, :set_provider, only: [:show, :edit, :update, :destroy]
+  before_action :set_user
+  before_action :set_meal, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new]
 
   def index
-    taken_meals_from_gifts = Gift.pluck(:meal_id)
-    @taken_meals = Meal.all.where(id: taken_meals_from_gifts)
-    # binding.pry
+    gifted_meals = Gift.pluck(:meal_id)
+    @taken_meals = Meal.all.where(id: gifted_meals)
     @available_meals = Meal.all.to_a - @taken_meals
   end
 
@@ -20,9 +20,8 @@ class MealsController < ApplicationController
   end
 
   def create
-
     @meal = Meal.new(meal_params)
-    @meal.provider = @provider
+    @meal.provider = @user
     respond_to do |format|
       if @meal.save
         format.html { redirect_to @meal, notice: 'Meal was successfully created.' }
@@ -59,8 +58,8 @@ class MealsController < ApplicationController
       @meal = Meal.find(params[:id])
     end
 
-    def set_provider
-      @provider = current_user
+    def set_user
+      @user = current_user
     end
 
     def meal_params

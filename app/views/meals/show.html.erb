@@ -1,4 +1,39 @@
-<p id="notice"><%= notice %></p>
+<div class="ui card">
+  <div class="content">
+    <span class="right floated meta">
+      in x days
+    </span>
+    <span class="left floated meta">
+      <%= @meal.provider.name %>'s
+    </span>
+  </div>
+  <div class="image">
+    <%= image_tag "meals/" + @meal.hero_image + ".jpg"%>
+  </div>
+  <div class="content">
+    <div class="header"><%= @meal.main_title %></div>
+    <div class="meta">
+      <%= @meal.sub_title %>
+    </div>
+    <div class="description">
+      <%= @meal.description %>
+    </div>
+  </div>
+  <div class="extra content">
+    <%= link_to @meal do %>
+      <%= semantic_icon("eye") %>
+      Show
+    <% end %>
 
-<%= link_to 'Edit', edit_meal_path(@meal) %> |
+    <%- if @user == @meal.provider %>
+      <%= link_to edit_meal_path(@meal) do %>
+        <%= semantic_icon("right floated pencil") %>
+      <% end %>
+      <%= link_to @meal, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <%= semantic_icon("right floated trash") %>
+      <% end %>
+    <% end -%>
+  </div>
+</div>
+
 <%= link_to 'Back', meals_path %>

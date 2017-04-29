@@ -4,7 +4,7 @@
         in x days
       </span>
       <span class="left floated meta">
-        <%= meal.provider_id %>Provider.id
+        <%= meal.provider.name %>'s
       </span>
     </div>
     <div class="image">
@@ -25,11 +25,19 @@
         Show
       <% end %>
 
-      <%= link_to edit_meal_path(meal) do %>
-        <%= semantic_icon("right floated pencil") %>
-      <% end %>
-      <%= link_to meal, method: :delete, data: { confirm: 'Are you sure?' } do %>
-        <%= semantic_icon("right floated trash") %>
-      <% end %>
+      <%- if user == meal.provider %>
+        <%= link_to edit_meal_path(meal) do %>
+          <%= semantic_icon("right floated pencil") %>
+        <% end %>
+        <%= link_to meal, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <%= semantic_icon("right floated trash") %>
+        <% end %>
+      <%- elsif meal.is_available? %>
+        <%= link_to(meal, method: :show,  class:'right floated') do %>
+          <%= semantic_icon("check") %>
+          Take
+        <% end %>
+
+      <% end -%>
     </div>
   </div>

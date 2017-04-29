@@ -10,6 +10,10 @@ class User < ApplicationRecord
                             foreign_key:  'receiver_id'
   has_many :provided_meals, class_name:   'Meal',
                             foreign_key:  'provider_id'
+  # has_many :received_meals, class_name:   'Meal',
+  #                           through:  'received_gifts',
+  #                           foreign_key:  'provider_id'
+
 
   has_many :meals
 end
