@@ -12,6 +12,11 @@ class MealsController < ApplicationController
   def show
   end
 
+  def claim
+    require 'pry'
+    binding.pry
+  end
+
   def new
     @meal = Meal.new
   end

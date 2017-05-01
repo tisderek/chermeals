@@ -33,7 +33,7 @@
           <%= semantic_icon("right floated trash") %>
         <% end %>
       <%- elsif meal.is_available? %>
-        <%= link_to(meal, method: :show,  class:'right floated') do %>
+        <%= link_to("meals#claim", id: meal.id,  class:'right floated') do %>
           <%= semantic_icon("check") %>
           Take
         <% end %>
