@@ -11,18 +11,18 @@
   <body>
     <div class="ui fixed inverted menu">
       <div class="ui container">
-        <a href="#" class="header item">
-             <%= image_tag "gloves.png", class: 'logo' %>
-           <span class="cm-typed-logo"> <span>cher</span>meals</span>
-        </a>
+        <%= link_to root_path, {class: 'header item'} do %>
+          <%= image_tag "gloves.png", class: 'logo' %>
+          <span class="cm-typed-logo"> <span>cher</span>meals</span>
+        <% end %>
         <div class="right menu">
           <% if user_signed_in? %>
             <%= link_to new_meal_path, {class: 'item'} do %>
               <%= semantic_icon("add circle") %> Add a meal
             <% end %>
-            <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => 'item') %>
+            <%= link_to 'Logout', destroy_user_session_path, :method => :delete, :class => 'item' %>
           <% else %>
-            <%= link_to('Login', new_user_session_path, :class => 'item') %>
+            <%= link_to 'Login', new_user_session_path, :class => 'item' %>
           <% end %>
          </div>
       </div>

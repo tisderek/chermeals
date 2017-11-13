@@ -5,20 +5,14 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+todo:
+onboard
+  - create user with email or google
+  - get link to share with friends/coworker and invite them to join his network
 
-* System dependencies
+login
+  - see meal stream from the groups you're a part on
+  -
+add to their meal stream
+  - add a meal with delivery date, title, description, a link
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
