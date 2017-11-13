@@ -1,7 +1,7 @@
 <h2>Up for grabs</h2>
 
 <div class="ui cards">
-  <% @user.name %>
+   <% @user.name %>
   <%= render partial: "index_card", collection: @available_meals, as: :meal, locals: {user: @user} %>
 </div>
 

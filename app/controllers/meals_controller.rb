@@ -64,7 +64,7 @@ class MealsController < ApplicationController
     end
 
     def set_user
-      @user = current_user
+      @user = User.first
     end
 
     def meal_params
