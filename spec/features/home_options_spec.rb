@@ -10,18 +10,18 @@ feature "visitors get to home page" do
     expect(page).to have_content("Welcome!")
   end
 
-  scenario "prospect user can sign up with google" do
-    visit root_path
-    expect(page).to have_text("Welcome to chermeals!")
-    click_link "Get started"
-    click_link "Sign in with GitHub"
-    expect(page).to have_link "Sign out"
+  # scenario "prospect user can sign up with google" do
+  #   visit root_path
+  #   expect(page).to have_text("Welcome to chermeals!")
+  #   click_link "Get started"
+  #   click_link "Sign in with GitHub"
+  #   expect(page).to have_link "Sign out"
 
-    last_user = User.last
+  #   last_user = User.last
 
-    expect(user.provider).to eq 'google'
-    expect(user.uid).to eq '123545'
-  end
+  #   expect(user.provider).to eq 'google'
+  #   expect(user.uid).to eq '123545'
+  # end
 
   def fill_in_registration_fields
     fill_in "user[name]", with: Faker::Name.first_name
