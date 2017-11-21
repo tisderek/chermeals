@@ -1,20 +1,18 @@
 class MealsController < ApplicationController
-  before_action :set_user
+  before_action :authenticate_user!
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new]
 
   def index
+    current_usser
     gifted_meals = Gift.pluck(:meal_id)
-    @taken_meals = Meal.all.where(id: gifted_meals)
-    @available_meals = Meal.all.to_a - @taken_meals
-  end
+    taken_meals = Meal.all.where(id: gifted_meals)
+    available_meals = Meal.all.to_a - taken_meals
+end
 
   def show
   end
 
   def claim
-    require 'pry'
-    binding.pry
   end
 
   def new
@@ -61,10 +59,6 @@ class MealsController < ApplicationController
   private
     def set_meal
       @meal = Meal.find(params[:id])
-    end
-
-    def set_user
-      @user = User.first
     end
 
     def meal_params

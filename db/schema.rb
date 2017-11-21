@@ -10,53 +10,64 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419053649) do
+ActiveRecord::Schema.define(version: 20171121064356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "gifts", force: :cascade do |t|
-    t.integer  "provider_id"
-    t.integer  "receiver_id"
-    t.integer  "meal_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["meal_id"], name: "index_gifts_on_meal_id", using: :btree
-    t.index ["provider_id"], name: "index_gifts_on_provider_id", using: :btree
-    t.index ["receiver_id"], name: "index_gifts_on_receiver_id", using: :btree
+  create_table "gifts", id: :serial, force: :cascade do |t|
+    t.integer "provider_id"
+    t.integer "receiver_id"
+    t.integer "meal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meal_id"], name: "index_gifts_on_meal_id"
+    t.index ["provider_id"], name: "index_gifts_on_provider_id"
+    t.index ["receiver_id"], name: "index_gifts_on_receiver_id"
   end
 
-  create_table "meals", force: :cascade do |t|
-    t.string   "main_title"
-    t.string   "sub_title"
-    t.string   "description"
-    t.string   "cook_time"
-    t.integer  "servings_count"
-    t.integer  "calories_count"
-    t.date     "expected_date"
-    t.integer  "provider_id"
-    t.string   "hero_image"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["provider_id"], name: "index_meals_on_provider_id", using: :btree
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.string "slug"
+    t.string "invite_url"
+    t.string "creator_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+  create_table "meals", id: :serial, force: :cascade do |t|
+    t.string "main_title"
+    t.string "sub_title"
+    t.string "description"
+    t.string "cook_time"
+    t.integer "servings_count"
+    t.integer "calories_count"
+    t.date "expected_date"
+    t.integer "provider_id"
+    t.string "hero_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider_id"], name: "index_meals_on_provider_id"
+  end
+
+  create_table "users", id: :serial, force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.integer "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["group_id"], name: "index_users_on_group_id"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
