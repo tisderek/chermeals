@@ -7,17 +7,11 @@
         <%= meal.provider.name %>'s
       </span>
     </div>
-    <div class="image">
-      <%= image_tag "meals/" + meal.hero_image + ".jpg"%>
-    </div>
     <div class="content">
       <div class="header"><%= meal.main_title %></div>
       <div class="meta">
-        <%= meal.sub_title %>
+        From <%= meal.vendor %>
       </div>
-      <!-- <div class="description">
-        <%= meal.description %>
-      </div> -->
     </div>
     <div class="extra content">
       <%= link_to meal do %>
@@ -35,7 +29,7 @@
       <%- elsif meal.is_available? %>
         <%= link_to("meals#claim", id: meal.id,  class:'right floated') do %>
           <%= semantic_icon("check") %>
-          Take
+          Claim
         <% end %>
 
       <% end -%>

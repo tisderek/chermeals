@@ -37,14 +37,9 @@ ActiveRecord::Schema.define(version: 20171121064356) do
 
   create_table "meals", id: :serial, force: :cascade do |t|
     t.string "main_title"
-    t.string "sub_title"
-    t.string "description"
-    t.string "cook_time"
-    t.integer "servings_count"
-    t.integer "calories_count"
+    t.string "vendor"
     t.date "expected_date"
     t.integer "provider_id"
-    t.string "hero_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["provider_id"], name: "index_meals_on_provider_id"
