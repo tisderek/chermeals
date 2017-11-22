@@ -1,15 +1,15 @@
-
-
-<h2>Up for grabs</h2>
+<h2>Coming up</h2>
 
 <div class="ui cards">
-  <%= render partial: "index_card", collection: available_meals, as: :meal, locals: {user: @user} %>
+  <%= render partial: "index_card", collection: @available_meals, as: :meal, locals: {user: @user} %>
 </div>
 
 <div class="ui hidden divider"></div>
 
-<h2>Taken</h2>
+<% if @taken_meals.any? %>
+  <h2>Taken</h2>
 
-<div class="ui cards">
-  <%= render partial: "index_card", collection: taken_meals, as: :meal, locals: {user: @user} %>
-</div>
+  <div class="ui cards">
+    <%= render partial: "index_card", collection: @taken_meals, as: :meal, locals: {user: @user} %>
+  </div>
+<% end %>
