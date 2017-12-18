@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     meals_path
   end
 
-  def user_params
+  # def user_params
 
-  end
+  # end
 end

@@ -4,6 +4,7 @@ class CreateMeals < ActiveRecord::Migration[5.0]
       t.string                  :main_title
       t.string                  :vendor
       t.date                    :expected_date
+
       t.belongs_to              :provider
 
       t.timestamps

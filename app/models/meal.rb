@@ -1,5 +1,5 @@
 class Meal < ApplicationRecord
-  belongs_to :provider, class_name: "User"
+  belongs_to :provider, class_name: "Member"
   has_one :gift
   has_one :receiver, through: :gift
 

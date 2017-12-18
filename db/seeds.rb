@@ -1,7 +1,7 @@
-derek = User.create(name: 'Derek', email:'test@test.com', password: 'password')
-jack = User.create(name: 'Jack', email:'test@test.com', password: 'password')
+derek = Member.create(name: 'Derek', email:'test@test.com', password: 'password')
+jack = Member.create(name: 'Jack', email:'test@test.com', password: 'password')
 nly = Group.create(name: 'Neighbors', slug:'neighbors')
-sandy = User.create(name: 'Faye', email:'sandy@neighborly.com', password: 'password')
+sandy = Member.create(name: 'Faye', email:'sandy@neighborly.com', password: 'password')
 
 stew = Meal.create(
   main_title: 'Spanish-Style Potato & Chickpea Stew',

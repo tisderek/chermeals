@@ -22,7 +22,7 @@
       Show
     <% end %>
 
-    <%- if @user == @meal.provider %>
+    <%- if @member == @meal.provider %>
       <%= link_to edit_meal_path(@meal) do %>
         <%= semantic_icon("right floated pencil") %>
       <% end %>
