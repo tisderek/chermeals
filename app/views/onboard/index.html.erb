@@ -1,0 +1,15 @@
+<h2>Coming up</h2>
+
+<div class="ui cards">
+  <%= render partial: "index_card", collection: @available_meals, as: :meal, locals: {member: @member} %>
+</div>
+
+<div class="ui hidden divider"></div>
+
+<% if @taken_meals.any? %>
+  <h2>Taken</h2>
+
+  <div class="ui cards">
+    <%= render partial: "index_card", collection: @taken_meals, as: :meal, locals: {member: @member} %>
+  </div>
+<% end %>
