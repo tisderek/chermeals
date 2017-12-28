@@ -2,9 +2,9 @@ class Member < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :meals
-
   belongs_to :group, optional: true
+
+  has_many :meals
 
   has_many :provided_gifts, class_name:   'Gift',
                             foreign_key:  'provider_id'
