@@ -3,8 +3,8 @@ class CreateGroups < ActiveRecord::Migration[5.1]
     create_table :groups do |t|
       t.string                  :name
       t.string                  :slug, unique: true
-      t.string                  :invite_url
-      t.string                  :creator_id
+      t.string                  :description
+      # t.string                  :whitelisted_email_domain
 
       t.timestamps
     end

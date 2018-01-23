@@ -1,15 +1,24 @@
-<h2>Coming up</h2>
+<h2>Meals</h2>
 
-<div class="ui cards">
-  <%= render partial: "index_card", collection: @available_meals, as: :meal, locals: {member: @member} %>
-</div>
 
-<div class="ui hidden divider"></div>
-
-<% if @taken_meals.any? %>
-  <h2>Taken</h2>
+<% if @available_group_meals.any? %>
+  <h2>Available group meals</h2>
 
   <div class="ui cards">
-    <%= render partial: "index_card", collection: @taken_meals, as: :meal, locals: {member: @member} %>
+    <%= render partial: "index_card", collection: @available_group_meals, as: :meal, locals: {member: @member} %>
   </div>
+
+<div class="ui hidden divider"></div>
 <% end %>
+
+<% if @group_meals.any? %>
+  <h2>All group meals</h2>
+
+  <div class="ui cards">
+    <%= render partial: "index_card", collection: @group_meals, as: :meal, locals: {member: @member} %>
+  </div>
+
+<% end %>
+<div class="ui hidden divider"></div>
+
+<div class="ui hidden divider"></div>

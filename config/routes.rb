@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   devise_scope :member do
-    get "/sign_in" => "members/sessions#new" # custom path to login/sign_in
-    get "/join" => "members/registrations#new" # custom path to sign_up/registration
+    get "/sign_in" => "members/sessions#new"
+    get "/join" => "members/registrations#new"
   end
 
   devise_for :members, controllers: {

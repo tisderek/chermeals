@@ -3,10 +3,8 @@ class MealsController < ApplicationController
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
 
   def index
-    @member = current_member
-    gifted_meals = Gift.pluck(:meal_id)
-    @taken_meals = Meal.all.where(id: gifted_meals)
-    @available_meals = Meal.all.to_a - @taken_meals
+    @group_meals = current_member.groups.map(&:all_meals).flatten
+    @available_group_meals = current_member.groups.map(&:available_meals).flatten
   end
 
   def show

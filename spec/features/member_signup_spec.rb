@@ -1,16 +1,15 @@
 require 'rails_helper'
 
-feature "member onboarding" do
+feature "member signup" do
 
-  scenario "prospect member can sign up with email" do
+  scenario "can sign up with email" do
     visit root_path
     expect(page).to have_text("Welcome to chermeals!")
     click_link "Get started"
-
     fill_in_registration_fields
     expect(page).to have_content("Welcome!")
-    expect(current_path).to eq meals_path
   end
+
 
   def fill_in_registration_fields
     fill_in "member[name]", with: Faker::Name.first_name

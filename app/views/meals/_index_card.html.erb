@@ -4,7 +4,7 @@
         in x days
       </span>
       <span class="left floated meta">
-        <%= meal.provider.name %>'s
+        <%= meal.member.name %>'s
       </span>
     </div>
     <div class="content">
@@ -19,7 +19,7 @@
         Show
       <% end %>
 
-      <%- if member == meal.provider %>
+      <%- if member == meal.member %>
         <%= link_to edit_meal_path(meal) do %>
           <%= semantic_icon("right floated pencil") %>
         <% end %>

@@ -1,9 +1,9 @@
 class GroupsController < ApplicationController
-  before_action :authenticate_member!
+  before_action :authenticate_member!, except: [:show]
   before_action :set_groups, only: [:show, :edit, :update, :destroy]
 
   def index
-    @group = current_member.group || Group.new
+    @group = current_member.groups.first || Group.new
   end
 
   def show
@@ -18,9 +18,10 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
+
     respond_to do |format|
-      if @group.save
-        format.html { redirect_to @group, notice: 'Group was successfully created.' }
+      if current_member.groups <<  @group
+        format.html { redirect_to groups_path, notice: 'Group was successfully created.' }
         format.json { render :show, status: :created, location: @group }
       else
         format.html { render :new }
@@ -55,6 +56,6 @@ class GroupsController < ApplicationController
     end
 
     def group_params
-      # params.require(:group).permit(:title)
+      params.require(:group).permit(:name, :description)
     end
 end
