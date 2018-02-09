@@ -1,11 +1,12 @@
 class DeviseCreateMembers < ActiveRecord::Migration[5.1]
   def change
     create_table :members do |t|
-      t.string            :name, null: false, default: ""
+      t.string :name,                 null: false, default: ""
+      t.boolean :free_email_provider, null: false
 
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
+      t.string :email,                null: false, default: ""
+      t.string :encrypted_password,   null: false, default: ""
 
       ## Recoverable
       t.string   :reset_password_token
