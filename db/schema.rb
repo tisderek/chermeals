@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 20171231000949) do
 
   create_table "members", force: :cascade do |t|
     t.string "name", default: "", null: false
-    t.boolean "free_email_provider", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
