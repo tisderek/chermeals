@@ -2,7 +2,7 @@ derek = Member.create(name: 'Derek', email:'derek@google.com', password: 'passwo
 jack = Member.create(name: 'Jack', email:'jack@google.com', password: 'password')
 faye = Member.create(name: 'Faye', email:'faye@google.com', password: 'password')
 
-nly = Group.create(name: 'Neighbors', slug:'google.com')
+nly = Group.create(name: 'Neighbors', domain:'google.com')
 
 nly.members << derek
 nly.members << jack

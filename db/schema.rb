@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20171231000949) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
-    t.string "slug"
+    t.string "domain"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
