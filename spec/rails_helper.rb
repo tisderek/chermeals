@@ -7,6 +7,8 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'simple_bdd'
 require 'shoulda/matchers'
+require 'factory_bot_rails'
+
 Capybara.javascript_driver = :webkit
 
 ActiveRecord::Migration.maintain_test_schema!
@@ -37,6 +39,7 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
+  config.include FactoryBot::Syntax::Methods
 
   config.infer_spec_type_from_file_location!
 
