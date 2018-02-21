@@ -17,7 +17,7 @@ gem 'jbuilder', '~> 2.5'
 
 # tools
 gem 'devise'
-gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 gem 'email_check'
 
 group :development, :test do
@@ -42,7 +42,7 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
-  gem 'faker'
+  gem 'faker', github: 'stympy/faker', branch: 'master'
   gem 'simple_bdd'
 end
 
