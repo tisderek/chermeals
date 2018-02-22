@@ -6,3 +6,14 @@ VCR.configure do |config|
 
   # only want VCR to intercept requests to external URLs
   config.ignore_localhost = true
+
+  # obfuscate sensitive data in VCR replays
+  config.filter_sensitive_data('<FULLCONTACT_API_REQUEST_WITH_VALID_COMPANY_DOMAIN>') do |interaction|
+    "https://api.fullcontact.com/v2/company/lookup.json?apiKey=#{ENV['FULLCONTACT_KEY']}&domain=bugcrowd.com"
+  end
+
+  config.filter_sensitive_data('<FULLCONTACT_API_REQUEST_WITH_INVALID_COMPANY_DOMAIN>') do |interaction|
+    "https://api.fullcontact.com/v2/company/lookup.json?apiKey=#{ENV['FULLCONTACT_KEY']}&domain=group-domain.com"
+  end
+
+end
