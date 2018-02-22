@@ -42,6 +42,8 @@ end
 group :test do
   gem 'capybara-email'
   gem 'capybara-webkit'
+  gem 'webmock'
+  gem 'vcr'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'

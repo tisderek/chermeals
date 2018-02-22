@@ -9,6 +9,9 @@ require 'simple_bdd'
 require 'shoulda/matchers'
 require 'factory_bot_rails'
 
+# Requires supporting ruby files in spec/support/ and its subdirectories.
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+
 Capybara.javascript_driver = :webkit
 
 ActiveRecord::Migration.maintain_test_schema!
