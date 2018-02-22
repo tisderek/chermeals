@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20171231000949) do
     t.string "name"
     t.string "domain"
     t.string "description"
+    t.text "organization_info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

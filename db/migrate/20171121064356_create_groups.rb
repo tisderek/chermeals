@@ -4,8 +4,7 @@ class CreateGroups < ActiveRecord::Migration[5.1]
       t.string                  :name
       t.string                  :domain, unique: true
       t.string                  :description
-      # t.string                  :whitelisted_email_domain
-
+      t.text                    :organization_info
       t.timestamps
     end
 
