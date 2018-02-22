@@ -20,7 +20,8 @@ gem 'jbuilder', '~> 2.5'
 # tools
 gem 'devise'
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
-gem 'email_check'
+gem 'email_check' # validates email and ensures corporate domains only
+gem 'fullcontact' # retrieves company info based on domain
 
 group :development, :test do
   gem 'pry'
