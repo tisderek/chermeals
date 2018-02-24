@@ -9,8 +9,18 @@ RSpec.configure do |config|
       :get,
       /^https:\/\/api.fullcontact.com\/v2\/company\/lookup.*(?<!inexistent-company-domain.com)$/
     ).
-      with(headers: {'Accept'=>'*/*', 'User-Agent'=>'Ruby'}).
-      to_return(status: 200, body: "stubbed response", headers: {})
-
+      to_return do |request|
+        company_domain_name = request.uri.to_s.split("domain=").last.split(".").first
+        company_name = company_domain_name.split("-").join(" ").titleize + " Inc"
+        {
+          status: 200,
+          body: {
+            organization: {
+              name: company_name,
+              founded: 2000
+            }
+          }.to_json
+        }
+      end
   end
 end

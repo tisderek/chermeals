@@ -23,15 +23,28 @@ feature "Fullcontact external request" do
     end
 
     context "company domain is not inexistent-company-domain.com" do
-      before do
-        company_url_without_protocol = Faker::SiliconValley.url.split("//").last
-        request_uri = request_base_uri + company_url_without_protocol
-        Net::HTTP.get(URI(request_uri))
+      let(:company_name) { Faker::SiliconValley.company.gsub("-", " ") }
+      let!(:response) do
+        domain = "#{company_name.parameterize}.#{Faker::Internet.domain_suffix}"
+        Net::HTTP.get(URI(request_base_uri + domain))
       end
 
       it "does not use cassette" do
         expect(VCR.current_cassette).to be_nil
       end
+
+      it "stubbed response has the expected keys" do
+        parsed_response = JSON.parse(response)
+        expect(parsed_response.keys).to include("organization")
+        expect(parsed_response["organization"].keys).to include("name")
+      end
+
+      it "stubbed response has a company name with a suffix" do
+        parsed_response = JSON.parse(response)
+        expect(parsed_response.keys).to include("organization")
+        expect(parsed_response["organization"]["name"]).to eq company_name + " Inc"
+      end
+
     end
   end
 end
