@@ -12,8 +12,9 @@ VCR.configure do |config|
     "https://api.fullcontact.com/v2/company/lookup.json?apiKey=#{ENV['FULLCONTACT_KEY']}&domain=bugcrowd.com"
   end
 
-  config.filter_sensitive_data('<FULLCONTACT_API_REQUEST_WITH_INVALID_COMPANY_DOMAIN>') do |interaction|
-    "https://api.fullcontact.com/v2/company/lookup.json?apiKey=#{ENV['FULLCONTACT_KEY']}&domain=group-domain.com"
+  # hide sensitive information in cassettes
+  config.filter_sensitive_data('<FULLCONTACT_API_REQUEST_WITH_INEXISTENT_COMPANY_DOMAIN>') do |i|
+    "https://api.fullcontact.com/v2/company/lookup.json?apiKey=#{ENV['FULLCONTACT_KEY']}&domain=inexistent-company-domain.com"
   end
 
 end

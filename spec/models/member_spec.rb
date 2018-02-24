@@ -25,8 +25,10 @@ RSpec.describe Member, type: :model do
 
     context "when there is not a Group with the member email domain" do
       it "creates a Group using the user email domain and adds the user to the group" do
-        expect { first_member.save }.to change { Group.count }.from(0).to(1)
-        expect(Group.find_by(domain: domain).members).to include(first_member)
+        VCR.use_cassette('fullcontact_success') do
+          expect { first_member.save }.to change { Group.count }.from(0).to(1)
+          expect(Group.find_by(domain: domain).members).to include(first_member)
+        end
       end
     end
 

@@ -1,0 +1,191 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: "<FULLCONTACT_API_REQUEST_WITH_VALID_COMPANY_DOMAIN>"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - FullContact Ruby Client/0.18.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 22 Feb 2018 18:19:49 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '2149'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Rate-Limit-Limit:
+      - '60'
+      X-Rate-Limit-Remaining:
+      - '59'
+      X-Rate-Limit-Reset:
+      - '60'
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "status" : 200,
+          "requestId" : "7e0ffb90-badd-49e9-b512-acbb28a45ca1",
+          "category" : [ {
+            "code" : "OTHER",
+            "name" : "Other"
+          } ],
+          "logo" : "https://d2ojpxxtu63wzl.cloudfront.net/static/fbb0749981f34cbfa61fed5b3e66b1b7_64f33f70fba057630dc8bea5517fa58f678e44c27a01ddb05e04c72f720bbe78",
+          "website" : "https://bugcrowd.com",
+          "industries" : [ {
+            "type" : "SIC",
+            "name" : "Computer Programming, Data Processing, and Other Computer Related Services",
+            "code" : "737"
+          }, {
+            "type" : "NAICS",
+            "name" : "Data Processing, Hosting, and Related Services",
+            "code" : "5182"
+          } ],
+          "organization" : {
+            "name" : "Bugcrowd Inc",
+            "approxEmployees" : 125,
+            "founded" : "2012",
+            "overview" : "Bugcrowd Inc. is a pioneer and innovator in crowdsourced security testing for the enterprise, Bugcrowd harnesses the power of more than 30,000 security researchers to surface critical software vulnerabilities and level the playing field in cybersecurity. Bugcrowd also provides a range of responsible disclosure and managed service options that allow companies to commission a customized security testing program that fits their specific requirements. Bugcrowd's proprietary vulnerability disclosure platform is deployed by Tesla Motors, The Western Union Company, Pinterest, Barracuda Networks and Jet.com. Based in San Francisco, Bugcrowd is backed by Blackbird Ventures, Costanoa Venture Capital, Industry Ventures, Paladin Capital Group, Rally Ventures and Salesforce Ventures.",
+            "contactInfo" : {
+              "emailAddresses" : [ {
+                "value" : "hello@bugcrowd.com",
+                "label" : "other"
+              } ],
+              "phoneNumbers" : [ {
+                "number" : "+1 (650) 260-8443",
+                "label" : "other"
+              }, {
+                "number" : "(650) 260-8443",
+                "label" : "other"
+              } ],
+              "addresses" : [ {
+                "addressLine1" : "921 Front Street",
+                "addressLine2" : "Suite 100",
+                "locality" : "San Francisco",
+                "region" : {
+                  "name" : "California",
+                  "code" : "CA"
+                },
+                "country" : {
+                  "name" : "United States",
+                  "code" : "US"
+                },
+                "postalCode" : "94111",
+                "label" : "work"
+              }, {
+                "locality" : "San Francisco",
+                "region" : {
+                  "name" : "CA"
+                },
+                "country" : {
+                  "name" : "United States"
+                }
+              } ]
+            },
+            "links" : [ {
+              "url" : "https://youtu.be/YP2G-bmEmJU",
+              "label" : "video"
+            }, {
+              "url" : "https://blog.bugcrowd.com",
+              "label" : "blog"
+            } ],
+            "images" : [ {
+              "url" : "https://d2ojpxxtu63wzl.cloudfront.net/static/f130fb2533b45f52dff1f50e935e0775_9cab5a0988e8e4ca849306b1d3a047e3e4f60f7db215ea80b649b65368d90881",
+              "label" : "logo"
+            } ],
+            "keywords" : [ "Computer Networking", "Crowdsourcing", "Cybersecurity", "Enterprise Security", "Hacking", "Information Security", "Insects", "Internet of Things", "Mobile" ]
+          },
+          "socialProfiles" : [ {
+            "bio" : "All software contains security flaws, and there are more bad guys attacking the companies that depend on this software than there are good guys defending them.\n\nAccording to PBS, upwards of 209,000 cybersecurity jobs in the U.S. are unfilled, and postings are up 74 percent over the past five years. This number will rise dramatically over the next 10 years as technology trends like public clouds, enterprise mobility and IoT make our businesses and lives more vulnerable to attackers.\n\nSo who will meet these security demands?\n\nBugcrowd is the premier marketplace for security testing on web, mobile, source code and client-side applications. Taking the leads of Facebook, Paypal and Google's crowdsourced bug bounty programs, we've developed a platform and community that combines a proprietary vulnerability reporting platform with the largest crowd of security researchers on the planet.",
+            "followers" : 530,
+            "typeId" : "angellist",
+            "typeName" : "AngelList",
+            "url" : "https://angel.co/bugcrowd",
+            "username" : "bugcrowd",
+            "id" : "139929"
+          }, {
+            "bio" : "Bugcrowd harnesses the power of more than 60,000 security researchers to surface critical software vulnerabilities.",
+            "typeId" : "crunchbasecompany",
+            "typeName" : "CrunchBase",
+            "url" : "http://www.crunchbase.com/organization/bugcrowd",
+            "username" : "bugcrowd"
+          }, {
+            "typeId" : "klout",
+            "typeName" : "Klout",
+            "url" : "http://klout.com/bugcrowd",
+            "username" : "bugcrowd",
+            "id" : "255016339940498931"
+          }, {
+            "typeId" : "youtubechannel",
+            "typeName" : "YouTube",
+            "url" : "https://youtube.com/channel/UCo1NHk_bgbAbDBc4JinrXww",
+            "id" : "UCo1NHk_bgbAbDBc4JinrXww"
+          }, {
+            "typeId" : "gravatar",
+            "typeName" : "Gravatar",
+            "url" : "https://gravatar.com/bugcrowd",
+            "username" : "bugcrowd",
+            "id" : "45494929"
+          }, {
+            "typeId" : "owler",
+            "typeName" : "Other",
+            "url" : "https://www.owler.com/iaApp/375138/bugcrowd-company-profile",
+            "username" : "bugcrowd",
+            "id" : "375138"
+          }, {
+            "typeId" : "twitter",
+            "typeName" : "Twitter",
+            "url" : "https://twitter.com/bugcrowd",
+            "username" : "bugcrowd"
+          }, {
+            "typeId" : "facebook",
+            "typeName" : "Facebook",
+            "url" : "https://www.facebook.com/bugcrowd",
+            "username" : "bugcrowd"
+          }, {
+            "typeId" : "linkedincompany",
+            "typeName" : "LinkedIn",
+            "url" : "https://www.linkedin.com/company/bugcrowd",
+            "username" : "bugcrowd"
+          } ],
+          "traffic" : {
+            "topCountryRanking" : [ {
+              "rank" : 19699,
+              "locale" : "in"
+            }, {
+              "rank" : 93984,
+              "locale" : "us"
+            }, {
+              "rank" : 64211,
+              "locale" : "br"
+            } ],
+            "ranking" : [ {
+              "rank" : 115702,
+              "locale" : "global"
+            }, {
+              "rank" : 93984,
+              "locale" : "us"
+            } ]
+          }
+        }
+    http_version:
+  recorded_at: Thu, 22 Feb 2018 18:19:49 GMT
+recorded_with: VCR 4.0.0
