@@ -7,9 +7,9 @@ VCR.configure do |config|
   # only want VCR to intercept requests to external URLs
   config.ignore_localhost = true
 
-  # obfuscate sensitive data in VCR replays
-  config.filter_sensitive_data('<FULLCONTACT_API_REQUEST_WITH_VALID_COMPANY_DOMAIN>') do |interaction|
-    "https://api.fullcontact.com/v2/company/lookup.json?apiKey=#{ENV['FULLCONTACT_KEY']}&domain=bugcrowd.com"
+  # ignored request gets passed to webmock so it can stub it
+  config.ignore_request do |request|
+    request.uri.include?("api.fullcontact.com/v2/company/lookup=") && request.uri.split("domain=").last != "inexistent-company-domain.com"
   end
 
   # hide sensitive information in cassettes
