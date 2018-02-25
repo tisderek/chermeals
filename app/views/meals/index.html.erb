@@ -1,24 +1,29 @@
 <h2>Meals</h2>
 
-
-<% if @available_group_meals.any? %>
-  <h2>Available group meals</h2>
-
+<% if @available_meals.any? %>
   <div class="ui cards">
-    <%= render partial: "index_card", collection: @available_group_meals, as: :meal, locals: {member: @member} %>
+    <%= render partial: "index_card", collection: @available_meals, as: :meal, locals: {member: @member} %>
   </div>
-
 <div class="ui hidden divider"></div>
+
+<% else %>
+  <h2>Looks like there are no meals</h2>
+
+  <%= link_to new_meal_path, {class: 'item'} do %>
+    <%= semantic_icon("add circle") %> Add a meal
+  <% end %>
 <% end %>
 
-<% if @group_meals.any? %>
-  <h2>All group meals</h2>
+
+<% if @unavailable_meals.any? %>
+  <h2>Done deals</h2>
 
   <div class="ui cards">
-    <%= render partial: "index_card", collection: @group_meals, as: :meal, locals: {member: @member} %>
+    <%= render partial: "index_card", collection: @unavailable_meals, as: :meal, locals: {member: @member} %>
   </div>
 
 <% end %>
 <div class="ui hidden divider"></div>
+
 
 <div class="ui hidden divider"></div>

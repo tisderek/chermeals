@@ -3,8 +3,8 @@ class MealsController < ApplicationController
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
 
   def index
-    @group_meals = current_member.groups.map(&:all_meals).flatten
-    @available_group_meals = current_member.groups.map(&:available_meals).flatten
+    @available_meals = current_member.group.available_meals
+    @unavailable_meals = current_member.group.unavailable_meals
   end
 
   def show
@@ -22,7 +22,7 @@ class MealsController < ApplicationController
 
   def create
     @meal = Meal.new(meal_params)
-    @meal.provider = @member
+    @meal.member = current_member
     respond_to do |format|
       if @meal.save
         format.html { redirect_to @meal, notice: 'Meal was successfully created.' }

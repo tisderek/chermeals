@@ -22,6 +22,7 @@ gem 'devise'
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 gem 'email_check' # validates email and ensures corporate domains only
 gem 'fullcontact' # retrieves company info based on domain
+gem 'bullet' # help to kill N+1 queries and unused eager loading
 
 group :development, :test do
   gem 'pry'

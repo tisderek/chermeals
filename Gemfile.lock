@@ -64,6 +64,9 @@ GEM
     binding_of_caller (0.7.3)
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
+    bullet (5.7.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.10.0)
     capybara (2.13.0)
       addressable
       mime-types (>= 1.16)
@@ -259,6 +262,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
+    uniform_notifier (1.10.0)
     vcr (4.0.0)
     warden (1.2.7)
       rack (>= 1.0)
@@ -278,6 +282,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
+  bullet
   capybara-email
   capybara-webkit
   coffee-rails (~> 4.2)

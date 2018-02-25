@@ -1,13 +1,12 @@
 derek = Member.create(name: 'Derek', email:'derek@google.com', password: 'password')
-jack = Member.create(name: 'Karen', email:'karen@google.com', password: 'password')
-faye = Member.create(name: 'Todd', email:'todd@google.com', password: 'password')
-faye = Member.create(name: 'Sprinkles', email:'sprinkles@google.com', password: 'password')
+jack = Member.create(name: 'Jack', email:'jack@google.com', password: 'password')
+karen = Member.create(name: 'Karen', email:'karen@google.com', password: 'password')
 
 group = Group.create(domain:'google.com')
 
 group.members << derek
 group.members << jack
-group.members << faye
+group.members << karen
 
 stew = Meal.create \
   main_title: 'Spanish-Style Potato & Chickpea Stew',
@@ -34,5 +33,5 @@ jack.meals << cod
 jack.meals << sandwich
 jack.meals << catfish
 
-Gift.create(from: derek, to: faye, meal: stew)
+Gift.create(from: derek, to: karen, meal: stew)
 Gift.create(from: jack, to: derek, meal: cod)

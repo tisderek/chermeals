@@ -1,23 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<% if @group.new_record? %>
-  <h1>Create group</h1>
-
-  <p>
-    Looks like you're not associated to a group at the moment. Meals are shared in the context of a group, for example, your coworkers. Please create a group below.
-  </p>
-  <p>
-    After creating a group, you'll be provided with an group invite link. Share this link with people you are able to easily share your meals. eg: if you're getting your meal box at work, add your coworkers!
-  </p>
-
-  <%= render 'form', group: @group %>
-<% else %>
-
   <h1>Your groups</h1>
 
   <%= @group.name %>
   <%= @group.description %>
 
-<% end %>
 
 

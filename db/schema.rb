@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20171231000949) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "domain"
     t.string "description"
     t.text "organization_info"

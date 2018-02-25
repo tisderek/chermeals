@@ -11,12 +11,18 @@ class Group < ApplicationRecord
   validates_uniqueness_of :domain
   validates_presence_of :name
 
-  def all_meals
-    members.map(&:meals).compact.flatten
+  def meals
+    members.map{ |x| x.meals.includes(:receiver) }.compact.flatten
   end
 
+  scope :available_meals, -> { where }
+
   def available_meals
-    all_meals.select(&:is_available?)
+    meals.select(&:is_available?)
+  end
+
+  def unavailable_meals
+    meals.reject(&:is_available?)
   end
 
   protected

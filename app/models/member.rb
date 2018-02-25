@@ -12,16 +12,13 @@ class Member < ApplicationRecord
                             foreign_key:  'receiver_id'
 
   validates_presence_of :name
-
-  validates_email :email,
-    check_mx: true,
-    not_disposable: true,
-    not_free: true,
-    not_blacklisted: true,
-    block_special_usernames: true,
-    message: "You must register with your work email!"
+  validates_email :email, not_free: true, message: "You must register with your work email!"
 
   after_create :join_or_create_group
+
+  def group
+    groups.first
+  end
 
   protected
 
