@@ -4,7 +4,12 @@ class Group < ApplicationRecord
 
   serialize :organization_info
 
-  before_create :retrieve_organization_info_and_set_name
+  before_validation :get_organization_info, on: :create
+  before_validation :set_name, on: :create
+  before_create :sanitize_company_name, on: :create, if: :organization_info
+
+  validates_uniqueness_of :domain
+  validates_presence_of :name
 
   def all_meals
     members.map(&:meals).compact.flatten
@@ -16,19 +21,21 @@ class Group < ApplicationRecord
 
   protected
 
-  def retrieve_organization_info_and_set_name
-    if response = FullContact.company(domain: domain)
-      self.name = humanize_company_name(response.organization.name)
-      self.organization_info = response.except("status", "request_id")
+  def get_organization_info
+    response = FullContact.company(domain: domain)
+    rescue FullContact::NotFound
     else
-      self.name = "#{domain} Crew"
-    end
+      self.organization_info = response.except("status", "request_id")
   end
 
-  def humanize_company_name(name)
+  def set_name
+    self.name = organization_info.present? ? organization_info.organization.name : "The #{domain} crew"
+  end
+
+  def sanitize_company_name
     suffixes = %w[LLC L.L.C. Inc Inc. Co Co. Corp Corp. Ltd Ltd.]
     suffixes.each { |suff| name.include?(suff) && name.slice!(suff) }
-    name.strip
+    self.name = name.strip.gsub(/\W+\s+\W+\Z/, "")
   end
 
 end
