@@ -9,7 +9,7 @@ RSpec.describe Member, type: :model do
 
   it { should have_many(:meals) }
 
-  describe 'after_create' do
+  describe "after_create" do
     let(:member) { build(:member) }
 
     it "should run the proper callbacks" do

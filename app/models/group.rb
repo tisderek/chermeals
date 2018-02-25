@@ -5,7 +5,7 @@ class Group < ApplicationRecord
   serialize :organization_info
 
   before_validation :get_organization_info, on: :create
-  before_validation :set_name, on: :create
+  before_validation :ensure_name_is_present, on: :create
   before_create :sanitize_company_name, on: :create, if: :organization_info
 
   validates_uniqueness_of :domain
@@ -28,8 +28,9 @@ class Group < ApplicationRecord
       self.organization_info = response.except("status", "request_id")
   end
 
-  def set_name
-    self.name = organization_info.present? ? organization_info.organization.name : "The #{domain} crew"
+  def ensure_name_is_present
+    name_from_fullcontact_api = organization_info.present? && organization_info.dig(:organization, :name)
+    self.name = name_from_fullcontact_api.present? ? name_from_fullcontact_api : "The #{domain} crew"
   end
 
   def sanitize_company_name

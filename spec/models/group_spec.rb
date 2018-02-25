@@ -10,7 +10,7 @@ RSpec.describe Group, type: :model do
 
     it "should run the proper callbacks" do
       expect(group).to receive(:get_organization_info)
-      expect(group).to receive(:set_name)
+      expect(group).to receive(:ensure_name_is_present)
       group.validate
     end
   end
@@ -78,7 +78,7 @@ RSpec.describe Group, type: :model do
     end
   end
 
-  describe "#set_name" do
+  describe "#ensure_name_is_present" do
     let(:domain) { "apple.com" }
     let(:group) { build(:group, domain: domain) }
 
