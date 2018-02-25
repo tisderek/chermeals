@@ -8,12 +8,16 @@ FactoryBot.define do
   end
 
   factory :group do
-    company = Faker::SiliconValley.company
-    domain = "#{company.parameterize}.#{Faker::Internet.domain_suffix}"
-    name company
-    domain domain
+    # company = Faker::SiliconValley.company
+    # domain = "#{company.parameterize}.#{Faker::Internet.domain_suffix}"
+    # name company
+    # domain domain
 
     trait :with_members do
+
+    end
+
+    trait :with_domain_only do
 
     end
   end

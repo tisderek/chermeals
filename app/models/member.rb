@@ -11,6 +11,8 @@ class Member < ApplicationRecord
   has_many :received_gifts, class_name:   'Gift',
                             foreign_key:  'receiver_id'
 
+  validates_presence_of :name
+
   validates_email :email,
     check_mx: true,
     not_disposable: true,
