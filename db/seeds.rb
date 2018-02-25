@@ -1,12 +1,13 @@
 derek = Member.create(name: 'Derek', email:'derek@google.com', password: 'password')
-jack = Member.create(name: 'Jack', email:'jack@google.com', password: 'password')
-faye = Member.create(name: 'Faye', email:'faye@google.com', password: 'password')
+jack = Member.create(name: 'Karen', email:'karen@google.com', password: 'password')
+faye = Member.create(name: 'Todd', email:'todd@google.com', password: 'password')
+faye = Member.create(name: 'Sprinkles', email:'sprinkles@google.com', password: 'password')
 
-nly = Group.create(name: 'Neighbors', domain:'google.com')
+group = Group.create(domain:'google.com')
 
-nly.members << derek
-nly.members << jack
-nly.members << faye
+group.members << derek
+group.members << jack
+group.members << faye
 
 stew = Meal.create \
   main_title: 'Spanish-Style Potato & Chickpea Stew',
@@ -17,7 +18,6 @@ cod = Meal.create \
   main_title: 'Seared Cod & Crème Fraîche Sauce',
   expected_date: Date.new(2018, 05, 20),
   vendor: "Blue Apron"
-
 
 sandwich = Meal.create \
   main_title: 'Spiced Beef Sandwiches & Tzatziki Sauce',
