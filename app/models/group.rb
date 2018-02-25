@@ -23,9 +23,11 @@ class Group < ApplicationRecord
 
   def get_organization_info
     response = FullContact.company(domain: domain)
-    rescue FullContact::NotFound
+    rescue FullContact::Error => e
+      logger.error e.message
+      logger.error e.backtrace.join("\n")
     else
-      self.organization_info = response.except("status", "request_id")
+      self.organization_info = response.dig(:organization, :name) && response.except("status", "request_id")
   end
 
   def ensure_name_is_present
