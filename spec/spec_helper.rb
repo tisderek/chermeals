@@ -13,3 +13,4 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
 end
+  RSpec::Expectations.configuration.on_potential_false_positives = :nothing
